@@ -38,10 +38,16 @@ The global themes, color schemes, Plasma style, Katze Mono icons, fonts and the 
 - On Katze Dark, accent `#3DAEE9` gives a selection of 47,128,170 with black text (white's contrast there is 4.39) and `#34AAE8` gives 41,125,169 with white (4.56). On Katze Light both give black.
 - The blue schemes were made with `plasma-apply-colorscheme` in a throwaway home. The same steps with `#00B09A` gave the teal schemes exactly, except for four keys in `[Colors:Header][Inactive]` that were edited by hand in both.
 
+**Verified in a VM on the published image (`base`, `45.20261128`, 2026-11-28), with a user created by hand and logged in automatically:**
+- The user got Katze Dark with the blue selection, and the Katze Mono icons in each application's color (#88) on the panel, in the launcher and in Discover's sidebar; Katze Light the same, applied with `plasma-apply-lookandfeel`. The README pictures, the themes' previews and the icon sheet were taken again from that session and from `katze-mono.py --follow-accent --sheet`.
+- The VM was Fedora Cloud 45 with the image installed over it by `bootc install to-existing-root`, reached over vsock (`systemd-ssh-proxy`), since `sudo` was not available for `mise run vm`. The panel's launchers (Brave, Chrome, System Settings, Discover, Dolphin, Zed) were pinned by hand, as in the earlier pictures; a new user gets Fedora's.
+- Dolphin's side panel lists the root, `overlay` on `/` (composefs), under Devices, with a full usage bar. The XPS shows the same device in Solid.
+- Discover showed "Update Issue" while it was started over SSH: fwupd could not get authorization to refresh its metadata. Refreshing it as root first removed it.
+
 ## Not tested yet
 
 - The `Katze` color scheme in Konsole and Yakuake, and the prompt's colors, by eye on an image. The owner saw them from copies in the home directory.
-- The blue schemes (`#34AAE8`, 2026-11-25) in an image: a new user, the login screen, Konsole and the prompt. The themes' previews and the README pictures still show the teal.
+- The blue schemes (`#34AAE8`, 2026-11-25) on the login screen, and Konsole and the prompt, in an image. A new user's desktop was seen on 2026-11-28.
 - The Breeze defaults in `/etc/xdg/breezerc` for a new user. They were chosen on the XPS on 2026-11-25, in the owner's `breezerc`.
 - Inter and no sub-pixel text in a real session, and on the XPS panel. `tests/smoke.sh` reads them as a user with an empty home, with the config path Plasma sets.
 - Katze Light as a whole desktop, and switching at night, on an image. The owner saw on 2026-11-24, in the test VM, that the Dark Mode switch names Katze; the icon theme's light variant was seen in System Settings.
